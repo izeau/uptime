@@ -45,3 +45,17 @@ body {
   stroke: #fff;
   stroke-width: 0.3;
 }
+
+.clock .minute-marks .numbered-mark {
+  fill: #fff;
+  font-size: 3px;
+  font-family: sans-serif;
+  text-anchor: middle;
+}
+
+.clock .second-marks .numbered-mark {
+  fill: #fff;
+  font-size: 2px;
+  font-family: sans-serif;
+  text-anchor: middle;
+}

@@ -6,6 +6,7 @@ const hours = ["XII", "I", "II", "III", "IIII", "V", "VI", "VII", "VIII", "IX", 
 const hourMarks = clock.querySelector("text");
 const secondMarks = clock.querySelector(".second-marks");
 const minuteMarks = clock.querySelector(".minute-marks");
+const numbered = location.search === "?numbered";
 
 for (const [index, label] of hours.entries()) {
   hourMarks.appendChild(
@@ -18,21 +19,43 @@ for (const [index, label] of hours.entries()) {
 }
 
 for (let index = 0; index < 60; index += 1) {
-  minuteMarks.appendChild(
-    createNode("path", {
-      class: "mark",
-      transform: `rotate(${index * 6} 50 50)`,
-      d: `M 50 3 V ${index % 5 ? 4 : 6}`,
-    })
-  );
+  if (!numbered || index % 5) {
+    minuteMarks.appendChild(
+      createNode("path", {
+        class: "mark",
+        transform: `rotate(${index * 6} 50 50)`,
+        d: `M 50 3 V ${index % 5 ? 4 : 6}`,
+      })
+    );
 
-  secondMarks.appendChild(
-    createNode("path", {
-      class: "mark",
-      transform: `rotate(${index * 6} 50 50)`,
-      d: `M 50 2 V ${index % 5 ? 1 : 0}`,
-    })
-  );
+    secondMarks.appendChild(
+      createNode("path", {
+        class: "mark",
+        transform: `rotate(${index * 6} 50 50)`,
+        d: `M 50 2 V ${index % 5 ? 1 : 0}`,
+      })
+    );
+  } else {
+    minuteMarks.appendChild(
+      createNode("text", {
+        class: "numbered-mark",
+        transform: `rotate(${index * 6} 50 50)`,
+        innerHTML: index,
+        x: 50,
+        y: 5,
+      })
+    );
+
+    secondMarks.appendChild(
+      createNode("text", {
+        class: "numbered-mark",
+        transform: `rotate(${index * 6} 50 50)`,
+        innerHTML: index,
+        x: 50,
+        y: 2,
+      })
+    );
+  }
 }
 
 setInterval(update, 30);
