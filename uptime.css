@@ -1,0 +1,47 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  background: #b71540;
+}
+
+.clock {
+  max-width: 300px;
+}
+
+.clock .hand {
+  stroke: #fff;
+}
+
+.clock .hand.hours {
+  stroke-width: 2;
+}
+
+.clock .hand.minutes {
+  stroke-width: 1;
+}
+
+.clock .hand.seconds {
+  stroke-width: 0.5;
+}
+
+.clock .hour-marks {
+  fill: #fff;
+}
+
+.clock .minute-marks .mark {
+  stroke: #fff;
+  stroke-width: 0.5;
+}
+
+.clock .second-marks .mark {
+  stroke: #fff;
+  stroke-width: 0.3;
+}

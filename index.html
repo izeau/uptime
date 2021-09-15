@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>/r/badUIbattles: Uptime</title>
+  <link rel="stylesheet" href="uptime.css">
+</head>
+
+<body>
+  <svg class="clock" viewBox="0 0 100 100">
+    <defs>
+      <path id="path" d="M50,12a38,38 0 1,1 0,76a38,38 0 1,1 0,-76" />
+    </defs>
+    <path class="hand hours" d="M50 25 V50" />
+    <path class="hand minutes" d="M50 14 V50" />
+    <path class="hand seconds" d="M50 3 V50" />
+    <text class="hour-marks" font-size="5" font-family="sans-serif" letter-spacing="-0.4" text-anchor="middle" />
+    <g class="second-marks" />
+    <g class="minute-marks" />
+  </svg>
+
+  <script src="uptime.js"></script>
+</body>
+
+</html>
