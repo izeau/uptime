@@ -6,7 +6,9 @@ const hours = ["XII", "I", "II", "III", "IIII", "V", "VI", "VII", "VIII", "IX", 
 const hourMarks = clock.querySelector("text");
 const secondMarks = clock.querySelector(".second-marks");
 const minuteMarks = clock.querySelector(".minute-marks");
-const numbered = location.search === "?numbered";
+const params = new URLSearchParams(location.search);
+const numbered = params.has("numbered");
+const bounce = params.get("bounce") !== "no";
 
 for (const [index, label] of hours.entries()) {
   hourMarks.appendChild(
@@ -76,7 +78,8 @@ function createNode(type, attrs) {
 
 function update() {
   const now = new Date();
-  const seconds = now.getSeconds() + easeOutElastic(now.getMilliseconds() / 1000);
+  const fractionalSeconds = now.getMilliseconds() / 1000;
+  const seconds = now.getSeconds() + (bounce ? easeOutElastic(fractionalSeconds) : easeOutExpo(fractionalSeconds));
   const minutes = now.getMinutes() + seconds / 60;
   const hours = now.getHours() + minutes / 60;
 
@@ -87,4 +90,8 @@ function update() {
 
 function easeOutElastic(x) {
   return x && Math.pow(2, -10 * x) * Math.sin(((x * 10 - 0.75) * (2 * Math.PI)) / 3) + 1;
+}
+
+function easeOutExpo(x) {
+  return 1 - Math.pow(2, -10 * x);
 }
