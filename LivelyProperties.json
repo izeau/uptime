@@ -1,0 +1,31 @@
+{
+  "backgroundColor": {
+    "text": "Background color",
+    "type": "color",
+    "value": "#B71540"
+  },
+  "clockColor": {
+    "text": "Clock color",
+    "type": "color",
+    "value": "#FFFFFF"
+  },
+  "showNumbers": {
+    "text": "Show numbers",
+    "type": "checkbox",
+    "value": false
+  },
+  "enableBounce": {
+    "text": "Enable bounce",
+    "type": "checkbox",
+    "value": true
+  },
+  "clockSize": {
+    "text": "Clock size",
+    "type": "slider",
+    "min": 100,
+    "max": 1000,
+    "tick": 50,
+    "step": 50,
+    "value": 300
+  }
+}

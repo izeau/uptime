@@ -7,8 +7,8 @@ const hourMarks = clock.querySelector("text");
 const secondMarks = clock.querySelector(".second-marks");
 const minuteMarks = clock.querySelector(".minute-marks");
 const params = new URLSearchParams(location.search);
-const numbered = params.has("numbered");
-const bounce = params.get("bounce") !== "no";
+let numbered = params.has("numbered");
+let bounce = params.get("bounce") !== "no";
 
 for (const [index, label] of hours.entries()) {
   hourMarks.appendChild(
@@ -94,4 +94,28 @@ function easeOutElastic(x) {
 
 function easeOutExpo(x) {
   return 1 - Math.pow(2, -10 * x);
+}
+
+function livelyPropertyListener(name, value) {
+  switch (name) {
+    case "backgroundColor":
+      document.documentElement.style.setProperty("--background-color", value);
+      break;
+
+    case "clockColor":
+      document.documentElement.style.setProperty("--clock-color", value);
+      break;
+
+    case "showNumbers":
+      numbered = value;
+      break;
+
+    case "enableBounce":
+      bounce = value;
+      break;
+
+    case "clockSize":
+      document.documentElement.style.setProperty("--clock-size", `${value}px`);
+      break;
+  }
 }

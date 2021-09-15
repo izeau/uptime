@@ -1,3 +1,9 @@
+:root {
+  --background-color: #b71540;
+  --clock-color: #fff;
+  --clock-size: 300px;
+}
+
 html,
 body {
   height: 100%;
@@ -9,15 +15,15 @@ body {
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  background: #b71540;
+  background: var(--background-color);
 }
 
 .clock {
-  max-width: 300px;
+  max-width: var(--clock-size);
 }
 
 .clock .hand {
-  stroke: #fff;
+  stroke: var(--clock-color);
 }
 
 .clock .hand.hours {
@@ -33,28 +39,28 @@ body {
 }
 
 .clock .hour-marks {
-  fill: #fff;
+  fill: var(--clock-color);
 }
 
 .clock .minute-marks .mark {
-  stroke: #fff;
+  stroke: var(--clock-color);
   stroke-width: 0.5;
 }
 
 .clock .second-marks .mark {
-  stroke: #fff;
+  stroke: var(--clock-color);
   stroke-width: 0.3;
 }
 
 .clock .minute-marks .numbered-mark {
-  fill: #fff;
+  fill: var(--clock-color);
   font-size: 3px;
   font-family: sans-serif;
   text-anchor: middle;
 }
 
 .clock .second-marks .numbered-mark {
-  fill: #fff;
+  fill: var(--clock-color);
   font-size: 2px;
   font-family: sans-serif;
   text-anchor: middle;
